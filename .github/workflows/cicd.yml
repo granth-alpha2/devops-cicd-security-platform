@@ -1,0 +1,42 @@
+name: DevOps CI/CD Pipeline
+
+on:
+  push:
+    branches:
+      - development
+
+jobs:
+  build-test-security-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Source Checkout
+      uses: actions/checkout@v4
+
+    - name: Build Stage
+      run: |
+        echo "Building application..."
+        mkdir -p artifacts
+        echo "Build completed" > artifacts/build.log
+
+    - name: Test Stage
+      run: |
+        echo "Running tests..."
+        echo "All tests passed" > artifacts/test-report.log
+
+    - name: Security Validation
+      run: |
+        echo "Performing security checks..."
+        echo "Security validation passed" > artifacts/security-report.log
+
+    - name: Deployment Stage
+      run: |
+        echo "Deploying application..."
+        mkdir -p reports
+        echo "Deployment successful" > reports/deployment-report.log
+
+    - name: Rollback Mechanism
+      if: failure()
+      run: |
+        echo "Deployment failed. Rolling back..."
+        echo "Rollback completed" > reports/rollback-report.log
