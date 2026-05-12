@@ -10,43 +10,79 @@ Conftest uses the Rego language from [Open Policy Agent](https://www.openpolicya
 the assertions. You can read more about Rego in [How do I write policies](https://www.openpolicyagent.org/docs/how-do-i-write-policies.html)
 in the Open Policy Agent documentation.
 
-Here's a quick example. Save the following as `policy/deployment.rego`:
+Here's a quick example. Save the following a# DevOps CI/CD Security Platform
 
-```rego
-package main
+## Objective
+This project demonstrates:
 
-deny[msg] {
-  input.kind == "Deployment"
-  not input.spec.template.spec.securityContext.runAsNonRoot
+- Linux Administration
+- Git & GitHub Workflow
+- CI/CD Automation using GitHub Actions
+- SonarQube Integration
+- Open Policy Agent (OPA) Policy Enforcement
 
-  msg := "Containers must not run as root"
-}
+---
 
-deny[msg] {
-  input.kind == "Deployment"
-  not input.spec.selector.matchLabels.app
+## Project Structure
 
-  msg := "Containers must provide app label for pod selectors"
-}
-```
+company-devops-platform/
+├── configs/
+├── deployments/
+├── policies/
+├── reports/
+├── artifacts/
+├── backup/
 
-Assuming you have a Kubernetes deployment in `deployment.yaml` you can run Conftest like so:
+---
 
-```console
-$ conftest test deployment.yaml
-FAIL - deployment.yaml - Containers must not run as root
-FAIL - deployment.yaml - Containers must provide app label for pod selectors
+## Branching Strategy
 
-2 tests, 0 passed, 0 warnings, 2 failures, 0 exceptions
-```
+- main → stable branch
+- development → active development
+- staging → testing branch
+- production → deployment branch
 
-Conftest isn't specific to Kubernetes. It will happily let you write tests for any configuration files in a variety of different formats. See the [documentation](https://www.conftest.dev/) for [installation instructions](https://www.conftest.dev/install/) and
-more details about the features.
+---
 
-## Want to contribute to Conftest?
+## Implemented Features
 
-* See [DEVELOPMENT.md](DEVELOPMENT.md) to build and test Conftest itself.
-* See [CONTRIBUTING.md](CONTRIBUTING.md) to get started.
+### Linux Administration
+- User and group management
+- File permissions
+- Backup creation
+- Process management
+- Archive generation
 
-For discussions and questions join us on the [Open Policy Agent Slack](https://slack.openpolicyagent.org/)
-in the `#opa-conftest` channel.
+### Git & GitHub
+- Branching workflow
+- Merge conflict resolution
+- stash
+- cherry-pick
+- rebase
+- revert
+- reset
+- recovery operations
+
+### CI/CD
+- GitHub Actions pipeline
+- Automated workflow triggers
+- Deployment stages
+- Artifact storage
+
+### SonarQube
+- Static code analysis
+- Quality gate validation
+- Security scanning
+
+### OPA / Conftest
+- Deployment validation
+- Root user restriction
+- Image tag enforcement
+- Privileged container prevention
+
+---
+
+## Repository
+
+GitHub Repository:
+https://github.com/granth-alpha2/devops-cicd-security-platform
