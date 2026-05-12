@@ -1,0 +1,5 @@
+[31mFAIL[0m - deployments/deployment.yaml - main - Latest tag is not allowed
+[31mFAIL[0m - deployments/deployment.yaml - main - Privileged containers are not allowed
+[31mFAIL[0m - deployments/deployment.yaml - main - Running as root user is not allowed
+
+[31m4 tests, 1 passed, 0 warnings, 3 failures, 0 exceptions[0m
