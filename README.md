@@ -1,4 +1,4 @@
-# DevOps CI/CD Security Platform
+Temporary stash modification for assignment demo.# DevOps CI/CD Security Platform
 
 ## Objective
 This project demonstrates:
